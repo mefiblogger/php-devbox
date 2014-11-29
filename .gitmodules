@@ -1,15 +1,3 @@
-[submodule "cookbooks/apt"]
-	path = cookbooks/apt
-	url = https://github.com/opscode-cookbooks/apt.git
-[submodule "cookbooks/apache2"]
-	path = cookbooks/apache2
-	url = https://github.com/opscode-cookbooks/apache2.git
-[submodule "cookbooks/mysql"]
-	path = cookbooks/mysql
-	url = https://github.com/opscode-cookbooks/mysql.git
-[submodule "cookbooks/php"]
-	path = cookbooks/php
-	url = https://github.com/opscode-cookbooks/php.git
 [submodule "chef/cookbooks/apt"]
 	path = chef/cookbooks/apt
 	url = https://github.com/opscode-cookbooks/apt.git
@@ -61,3 +49,15 @@
 [submodule "chef/cookbooks/vim"]
 	path = chef/cookbooks/vim
 	url = https://github.com/opscode-cookbooks/vim.git
+[submodule "chef/cookbooks/chef-php-extra"]
+	path = chef/cookbooks/chef-php-extra
+	url = https://github.com/inviqa/chef-php-extra.git
+[submodule "chef/cookbooks/git"]
+	path = chef/cookbooks/git
+	url = https://github.com/jssjr/git.git
+[submodule "chef/cookbooks/dmg"]
+	path = chef/cookbooks/dmg
+	url = https://github.com/opscode-cookbooks/dmg.git
+[submodule "chef/cookbooks/runit"]
+	path = chef/cookbooks/runit
+	url = https://github.com/hw-cookbooks/runit.git
