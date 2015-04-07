@@ -1,9 +1,9 @@
 php-devbox
 ==========
 
-A PHP devbox made with [Vagrant](https://www.vagrantup.com/) and [Chef](https://www.getchef.com/chef/) for super fast local developments.
+A PHP devbox made with [Vagrant](https://www.vagrantup.com/) and a bash installscript for super fast local developments.
 
-This is mostly just for playfully learn Vagrant and Chef. Feel free to do anything with it!
+This is mostly just for playfully learn Vagrant. Feel free to do anything with it!
 
 ## How to start
 
@@ -13,7 +13,8 @@ This is mostly just for playfully learn Vagrant and Chef. Feel free to do anythi
 4. Add a precise64 box called php-devbox: ```vagrant box add php-devbox http://files.vagrantup.com/precise64.box```
 5. In the php-devbox folder, run: ```vagrant up```
 6. Be patient! It takes some time on the first start.
-7. Open your browser: http://192.168.222.222/
+7. Meanwhile, add php-devbox.localhost 192.168.222.222 to your hosts file.
+7. Open your browser: http://php-devbox.localhost/ or http://192.168.222.222/
 
 ## What's in the box?
 
@@ -21,16 +22,9 @@ The most important things:
 
 - Apache
 - MySQL (server and client)
-- PHP with XDebug
+- PHP (5.3.29) with XDebug
 - PHPUnit
 - PHP Mass Detector
 - PHP CodeSniffer
 
 ... and a lots more.
-
-## Useful links
-
-- https://github.com/inviqa/chef-php-extra
-- https://github.com/opscode-cookbooks/
-- http://adamcod.es/2013/01/15/vagrant-is-easy-chef-is-hard.html
-- http://adamcod.es/2013/01/15/vagrant-is-easy-chef-is-hard-part2.html
