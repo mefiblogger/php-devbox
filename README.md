@@ -1,7 +1,7 @@
 php-devbox
 ==========
 
-A PHP devbox made with [Vagrant](https://www.vagrantup.com/) and a bash installscript for super fast local developments.
+A PHP devbox made with [Vagrant](https://www.vagrantup.com/) and [Puppet](https://puppetlabs.com/) for super fast local developments.
 
 This is mostly just for playfully learn Vagrant. Feel free to do anything with it!
 
@@ -22,9 +22,8 @@ The most important things:
 
 - Apache
 - MySQL (server and client)
-- PHP (5.3.29) with XDebug
-- PHPUnit
-- PHP Mass Detector
-- PHP CodeSniffer
+- PHP (5.3.10)
+- Composer
+- [mefiblog](https://github.com/mefiblogger/mefiblog) repo for start
 
 ... and a lots more.

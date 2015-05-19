@@ -1,18 +1,27 @@
-Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.hostname = "php-devbox.localhost"
+VAGRANTFILE_API_VERSION = "2"
+  Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "hashicorp/precise64"
+  config.vm.network :private_network, ip: "192.168.222.222"
   config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "private_network", ip: "192.168.222.222"
+  config.vm.hostname = "php-devbox.localhost"  
+  config.vm.define "php-devbox" do |f| end
+  config.vm.synced_folder ".", "/vagrant", type: "nfs"
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = "php-devbox"
+    v.memory = "2048"
+  end
 
   config.ssh.forward_agent = true
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "2048"]
-    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  config.vm.provision "puppet" do |puppet|
+    puppet.manifests_path = "manifests/"
+    puppet.manifest_file = "site.pp"
+    puppet.options = '--verbose --debug'
   end
 
-  config.vm.synced_folder "www", "/var/www/", type: "nfs"
-  config.vm.synced_folder "config", "/usr/local/php-devbox/config", type: "nfs"
-
-  config.vm.provision :shell, path: "php-devbox.sh", keep_color: true
+# if you have some naughty error, turn this on
+#  config.vm.provider :virtualbox do |vb|
+#    vb.gui = true
+#  end
 end
