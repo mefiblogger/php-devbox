@@ -89,5 +89,6 @@ exec { "git clone https://github.com/mefiblogger/mefiblog.git /var/www/mefiblog"
 exec { "composer update --no-interaction":
     path => "/usr/bin",
     cwd => "/var/www/mefiblog",
-    onlyif => "which composer"
+    onlyif => "which composer",
+    require => Exec["git clone https://github.com/mefiblogger/mefiblog.git /var/www/mefiblog"]
 }
