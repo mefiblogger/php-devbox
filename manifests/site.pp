@@ -49,7 +49,7 @@ file { "/etc/apache2/sites-available/default":
 }
 file { "/var/www/php-devbox":
            source => "/vagrant/manifests/assets/php-devbox",
-           recursive => true,
+           recurse => true,
            require => Package["apache2"],
            replace => yes,
            force => true,
