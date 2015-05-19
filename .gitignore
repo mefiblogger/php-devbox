@@ -1,8 +1,1 @@
 .vagrant
-
-# Bundler
-bin/*
-.bundle/*
-
-.kitchen/
-.kitchen.local.yml
