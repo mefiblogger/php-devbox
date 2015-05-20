@@ -33,7 +33,7 @@ exec { "/usr/sbin/a2enmod rewrite" :
 }
 file {"/var/www":
     ensure => "link",
-           target => "/vagrant",
+           target => "/vagrant/www",
            require => Package["apache2"],
            notify => Service["apache2"],
            replace => yes,
@@ -44,13 +44,6 @@ file { "/etc/apache2/sites-available/default":
            target => "/vagrant/manifests/assets/vhost.conf",
            require => Package["apache2"],
            notify => Service["apache2"],
-           replace => yes,
-           force => true,
-}
-file { "/var/www/php-devbox":
-           source => "/vagrant/manifests/assets/php-devbox",
-           recurse => true,
-           require => Package["apache2"],
            replace => yes,
            force => true,
 }
