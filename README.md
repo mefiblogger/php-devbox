@@ -5,6 +5,8 @@ A PHP devbox made with [Vagrant](https://www.vagrantup.com/) and [Puppet](https:
 
 This is mostly just for playfully learn Vagrant. Feel free to do anything with it!
 
+Perfect for symfony2 or simple PHP projects.
+
 ## How to start
 
 1. [Install Vagrant](https://docs.vagrantup.com/v2/getting-started/).
@@ -21,7 +23,7 @@ The most important things:
 
 - Apache
 - MySQL (server and client)
-- PHP (5.3.10)
+- PHP (5.3.10) with XDebug
 - Composer
 - [mefiblog](https://github.com/mefiblogger/mefiblog) repo for start
 
