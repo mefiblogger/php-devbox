@@ -1,21 +1,24 @@
 server {
-    listen sfmb.mefi.be:80;
-
-    root /var/www/mefiblog;
-    index index.php;
-
-    server_name sfmb.mefi.be;
+    server_name staging.mefi.be;
+    root /var/www/mefiblog/web;
 
     location / {
-        try_files $uri $uri/ /index.html;
+        # try to serve file directly, fallback to app.php
+        try_files $uri /app.php$is_args$args;
     }
-
-    location ~ \.php$ {
-        try_files $uri =404;
+    
+    location ~ ^/app\.php(/|$) {
         fastcgi_pass unix:/var/run/php5-fpm.sock;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
-
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS off;
+        # Prevents URIs that include the front controller. This will 404:
+        # http://domain.tld/app.php/some-path
+        # Remove the internal directive to allow URIs like this
+        internal;
     }
+
+    error_log /var/log/nginx/staging.mefi.be.error.log;
+    access_log /var/log/nginx/staging.mefi.be.access.log;
 }
