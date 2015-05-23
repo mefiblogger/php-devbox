@@ -26,6 +26,14 @@ package { ["php5-common", "php5-fpm", "php5-cli", "php-apc", "php5-mysql", "php5
            notify => Service["nginx"],
            require => [Exec["apt-get update"], Package['mysql-client'], Package['nginx']],
 }
+file { "/usr/local/php-devbox/manifests/assets/nginx/staging.mefi.be":
+        ensure => link,
+        target => "/etc/nginx/sites-enabled/staging.mefi.be",
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        replace => yes,
+        force => true,
+}
 exec { "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer":
     path => '/usr/bin/',
     unless => 'which composer',
